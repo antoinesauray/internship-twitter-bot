@@ -1,0 +1,11 @@
+{
+  "name": "ragebot",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bot"
+  },
+  "dependencies": {
+    "twitter": "^1.4.0"
+  }
+}
