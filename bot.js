@@ -13,7 +13,7 @@ var Twitter = new TwitterPackage(secret);
 function getRandomLine(filename, callback) {
     var data = fs.readFileSync(filename, 'utf8');
     var lines = data.split("\n");
-    var line_no = Math.floor(Math.random()*lines.length);
+    var line_no = Math.floor(Math.random()*(lines.length-1));
     if(+line_no > lines.length){
       throw new Error('File end reached without finding line');
     }
@@ -24,6 +24,7 @@ function getRandomLine(filename, callback) {
 getRandomLine("./sentences", function(line){
 
 	console.log("line="+line);
+	
 	Twitter.post('statuses/update', {status: line},  function(error, tweet, response){
   		if(error){
     			console.log(error);
